@@ -33,6 +33,16 @@ function Detail(props) {
           <img src="/images/group-icon.png" alt="" />
         </GroupButton>
       </Controls>
+      <Subtitle>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+        explicabo
+      </Subtitle>
+      <Description>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta, dolores
+        officia et molestiae reiciendis iusto velit nesciunt, pariatur
+        cupiditate itaque libero explicabo neque nostrum consectetur numquam,
+        laudantium odit! Ipsum, architecto!
+      </Description>
     </Container>
   );
 }
@@ -124,4 +134,17 @@ const AddButton = styled.button`
 `;
 const GroupButton = styled(AddButton)`
   background: rgba(0, 0, 0);
+`;
+const Subtitle = styled.div`
+  color: rgb(249, 249, 249);
+  font-size: 15px;
+  min-height: 20px;
+  margin-top: 26px;
+`;
+
+const Description = styled.div`
+  max-width: 600px;
+  color: rgb(249, 249, 249);
+  line-height: 1.4;
+  margin-top: 16px;
 `;
