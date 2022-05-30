@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { selectMovies } from "../features/movie/movieSlice";
 
 function Movies(props) {
+  console.log("SELECT MOVIES", useSelector(selectMovies));
   return (
     <Container>
       <h4>Recommended for you</h4>

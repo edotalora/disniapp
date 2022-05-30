@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { onSnapshot, collection, getFirestore } from "@firebase/firestore";
 import styled from "styled-components";
 import ImgSlider from "./ImgSlider";
 import Movies from "./Movies";
 import Viewers from "./Viewers";
+import db from "../firebase";
+import { useDispatch } from "react-redux";
+import { setMovies } from "../features/movie/movieSlice";
 function Home(props) {
+  const db = getFirestore();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    onSnapshot(collection(db, "movies"), (snapshot) => {
+      let tempMovies = snapshot.docs.map((doc) => {
+        return { id: doc.id, ...doc._document.data.value.mapValue.fields };
+      });
+      console.log("TEMP MOVIES: ", tempMovies);
+      dispatch(setMovies(tempMovies));
+    });
+  }, []);
   return (
     <Container>
       <ImgSlider></ImgSlider>
